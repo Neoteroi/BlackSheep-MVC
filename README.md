@@ -2,7 +2,7 @@
 Project template for BlackSheep web applications using MVC architecture. This project template
 can be used to build web applications that serve static files, support server side rendering of HTML, and define APIs.
 
-![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)
+[![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#)
 
 ## Getting started
 1. Clone the repository
@@ -28,7 +28,7 @@ $ uvicorn server:app --port 44777 --reload --log-level info
 * Configuration of exceptions handlers
 * Handling of application start and stop events
 * Strategy to handle authentication and authorization, using [`guardpost`](https://github.com/RobertoPrevato/GuardPost)
-* Integration with [`Jinja2 template engine`](https://github.com/RobertoPrevato/BlackSheep/wiki/Jinja2)
+* Integration with [`Jinja2 template engine`](http://jinja.pocoo.org/docs/2.10/)
 
 ## Request handlers defined using Controllers
 
