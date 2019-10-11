@@ -17,7 +17,7 @@
       <img class="masthead-avatar mb-5" src="images/blacksheep.png" alt="BlackSheep">
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">BlackSheep</h1>
+      <h1 class="masthead-heading mb-0">BlackSheep is an asynchronous web framework to build event based, non-blocking Python web applications</h1>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -29,7 +29,7 @@
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Fast ASGI web framework and HTTP client for <strong>Python</strong> asyncio</p>
+      <p class="masthead-subheading font-weight-light mb-0">fast ASGI web framework, and HTTP client for <strong>Python</strong> asyncio</p>
 
     </div>
   </header>
@@ -48,27 +48,41 @@
       </div>
 
       <div class="row">
+        <div class="mx-auto">
+          <ol class="text-center">
+            <li>Familiarize with the folder structure of the project</li>
+            <li>Learn how to define request handlers</li>
+            <li>Familiarize with DI and model binding</li>
+            <li>Refer to <a href="https://github.com/RobertoPrevato/BlackSheep">BlackSheep Wiki</a></li>
+          </ol>
+          <pre>
+            <code class="python">
+from pydantic import BaseModel
+from blacksheep.server.controllers import Controller, get, post, delete
+from blacksheep.server.bindings import FromJson
 
-        <pre>
-          <code class="python">
-            from blacksheep.server.controllers import Controller, get
-    
-    
-            class Home(Controller):
-            
-                @get()
-                def index(self):
-                    # NB: since the view function is called without parameters, the name is obtained from the
-                    # calling request handler ('index')
-                    return self.view()  # <-- returns by default /views/home/index.html
-            
-                @get(...)  # <-- Since ellipsis is used here, the route takes the name of the request handler: '/about'
-                def about(self):
-                    return self.view()  # <-- returns by default /views/home/about.html
-              
-          </code> 
-        </pre>
 
+class Example(BaseModel):
+    name: str
+    foo: str
+
+
+class Home(Controller):
+
+    @get()
+    def index(self):
+        return self.view()
+
+    @post('/item')
+    def create_item(self, item: FromJson(Example)):
+        ...
+
+    @delete('/item/:item_id')
+    def delete_item(self, item_id: str):
+        ...
+            </code> 
+          </pre>
+        </div>
       </div>
 
     </div>

@@ -9707,8 +9707,9 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .masthead .masthead-heading {
-  font-size: 2.75rem;
   line-height: 2.75rem;
+  line-height: 3.5rem;
+  font-size: 2.5rem;
 }
 
 .masthead .masthead-subheading {
@@ -9725,7 +9726,6 @@ a.text-dark:hover, a.text-dark:focus {
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
-    font-size: 4rem;
     line-height: 3.5rem;
   }
   .masthead .masthead-subheading {
@@ -9856,10 +9856,28 @@ form .row:first-child .floating-label-form-group {
     font-weight: bold;
 }
 
-#about {
-  min-height: 805px;
+#about, #getting-started {
+  min-height: calc(100vh - 40px);
 }
 
 #contact i.fab.fa-fw {
     color: #096553;
+}
+
+.masthead {
+  min-height: 100vh;
+}
+
+ol.text-center {
+  list-style-position: inside;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+ol li {
+  margin: 0.8rem;
+}
+
+code {
+  padding: 0 3rem !important;
 }

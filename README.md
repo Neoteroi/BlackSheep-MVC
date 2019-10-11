@@ -2,6 +2,8 @@
 Project template for BlackSheep web applications using MVC architecture. This project template
 can be used to build web applications that serve static files, support server side rendering of HTML, and define APIs.
 
+![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)
+
 ## Getting started
 1. Clone the repository
 
@@ -47,11 +49,7 @@ class Home(Controller):
         return self.view()  # <-- returns by default /views/home/about.html
 ```
 
-## Folder structure
-
-```
-
-```
+---
 
 ## About dependency injection
 For more information and documentation about built-in dependency injection, see `rodi` Wiki and examples:
@@ -60,7 +58,9 @@ For more information and documentation about built-in dependency injection, see 
 * [rodi wiki](https://github.com/RobertoPrevato/rodi/wiki)
 * [rodi wiki examples](https://github.com/RobertoPrevato/rodi/wiki/Examples)
 
-## Note about ASGI servers
+---
+
+## About ASGI servers
 This project template includes references to [`uvicorn`](uvicorn.org). However, it is possible to use other implementations of ASGI HTTP Servers.
 
 For example, to use the same application with [`Hypercorn`](https://pypi.org/project/Hypercorn/):
