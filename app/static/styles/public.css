@@ -9856,6 +9856,10 @@ form .row:first-child .floating-label-form-group {
     font-weight: bold;
 }
 
+#about {
+  min-height: 805px;
+}
+
 #contact i.fab.fa-fw {
     color: #096553;
 }
