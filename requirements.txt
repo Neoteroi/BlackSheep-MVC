@@ -1,5 +1,5 @@
 aiofiles==0.4.0
-blacksheep
+blacksheep==0.2.0
 cchardet==2.1.4
 certifi==2019.9.11
 Click==7.0
@@ -7,6 +7,8 @@ essentials==1.1.2
 guardpost==0.0.5
 h11==0.8.1
 httptools==0.0.13
+Jinja2==2.10.3
+MarkupSafe==1.1.1
 pydantic==0.32.2
 PyYAML==5.1.2
 roconfiguration==1.0.6
