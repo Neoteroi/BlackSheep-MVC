@@ -1,0 +1,18 @@
+# Default application settings, to run the application for local development.
+#
+# These settings are read in `app.configuration.py` and can be overridden by environmental variables,
+# thanks to `roconfiguration` package.
+# Refer to https://github.com/RobertoPrevato/roconfiguration for more information.
+#
+app_name: BlackSheep Empty Project Template
+github_url: https://github.com/RobertoPrevato/BlackSheepEmptyProject
+
+storage_connection_string: EXAMPLE
+
+debug: true  # if true, Jinja2 templates auto reloading is enabled
+
+show_error_details: true
+
+# site information
+site:
+    copyright: Hello World  # change with your own copyright notice
