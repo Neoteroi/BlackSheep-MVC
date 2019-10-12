@@ -1,5 +1,5 @@
 # BlackSheep MVC project template
-Project template for BlackSheep web applications using MVC architecture. This project template
+Project template for [BlackSheep](https://github.com/RobertoPrevato/BlackSheep) web applications using MVC architecture. This project template
 can be used to build web applications that serve static files, support server side rendering of HTML, and define APIs.
 
 [![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#blacksheep-mvc-project-template)
