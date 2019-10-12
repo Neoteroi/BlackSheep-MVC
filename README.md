@@ -31,6 +31,12 @@ $ uvicorn server:app --port 44777 --reload --log-level info
 * Integration with [`Jinja2 template engine`](http://jinja.pocoo.org/docs/2.10/)
 
 ## Request handlers defined using Controllers
+In BlackSheep, request handlers can be defined as functions, or class methods.
+Using class methods has the benefit of reducing code repetition, when the same context is needed for several request handlers.
+In both cases, services configured at startup (see app.services and how the `Container` class is used) and described in handlers' signatures, are injected automatically by the framework.
+Controllers *also* receive injected services to their constructors (`__init__` methods).
+
+Controllers also offer extra extensibility points: `on_request`, `on_response`, base `route` for all handlers defined on the class, and automatic selection of `view` by method name.
 
 ```python
 from blacksheep.server.controllers import Controller, get
