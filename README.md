@@ -33,8 +33,8 @@ $ uvicorn server:app --port 44777 --reload --log-level info
 ## Request handlers defined using Controllers
 In BlackSheep, request handlers can be defined as functions, or class methods.
 Using class methods has the benefit of reducing code repetition, when the same context is needed for several request handlers.
-In both cases, services configured at startup (see app.services and how the `Container` class is used) and described in handlers' signatures, are injected automatically by the framework.
-Controllers *also* receive injected services to their constructors (`__init__` methods).
+In both cases, services configured at startup and described in handlers' signatures, are injected automatically by the framework (see app.services and how the `Container` class is used).
+Controllers *also* receive injected services to their constructors (`__init__` methods), hence potentially reducing code repetition.
 
 Controllers also offer extra extensibility points: `on_request`, `on_response`, base `route` for all handlers defined on the class, and automatic selection of `view` by method name.
 
