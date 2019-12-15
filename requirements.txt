@@ -1,5 +1,5 @@
 aiofiles==0.4.0
-blacksheep==0.2.0
+blacksheep==0.2.1
 cchardet==2.1.4
 certifi==2019.9.11
 Click==7.0
