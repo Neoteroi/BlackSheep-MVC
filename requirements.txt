@@ -13,6 +13,6 @@ pydantic==0.32.2
 PyYAML==5.1.2
 roconfiguration==1.0.6
 rodi==1.0.8
-uvicorn==0.9.0
+uvicorn==0.11.7
 uvloop==0.13.0
 websockets==8.0.2
