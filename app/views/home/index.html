@@ -36,9 +36,9 @@
 
   <section class="page-section portfolio" id="getting-started">
     <div class="container">
-      
+
       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Getting started</h2>
-      
+
       <div class="divider-custom">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
@@ -57,12 +57,13 @@
           </ol>
           <pre>
             <code class="python">
-from pydantic import BaseModel
+from dataclasses import dataclass
 from blacksheep.server.controllers import Controller, get, post, delete
 from blacksheep.server.bindings import FromJson
 
 
-class Example(BaseModel):
+@dataclass
+class Example:
     name: str
     foo: str
 
@@ -73,14 +74,63 @@ class Home(Controller):
     def index(self):
         return self.view()
 
-    @post('/item')
-    def create_item(self, item: FromJson(Example)):
+    @post("/item")
+    def create_item(self, item: FromJson[Example]):
         ...
 
-    @delete('/item/:item_id')
+    @delete("/item/:item_id")
     def delete_item(self, item_id: str):
         ...
-            </code> 
+            </code>
+          </pre>
+          <hr />
+          <p>Use the provided strategy to defined API endpoints:</p>
+          <pre>
+            <code class="python">
+from blacksheep import Response
+from blacksheep.server.controllers import ApiController, delete, get, patch, post
+
+
+# In this case, the entity name is obtained from the class name: "cats"
+# To specify a @classmethod called "class_name" and returning a string, like in the
+# Foo example below.
+class Cats(ApiController):
+    @get(":cat_id")
+    def get_cat(self, cat_id: str) -> Response:
+        """
+        Handles GET /api/cats/:id
+        """
+
+    @patch(":cat_id")
+    def update_cat(self, cat_id: str) -> Response:
+        """
+        Handles PATCH /api/cats/:id
+        """
+
+    @post()
+    def create_cat(self) -> Response:
+        """
+        Handles POST /api/cats
+        """
+
+    @delete(":cat_id")
+    def delete_cat(self, cat_id: str) -> Response:
+        """
+        Handles DELETE /api/cats/:id
+        """
+
+
+class FooExample(ApiController):
+    @classmethod
+    def class_name(cls) -> str:
+        return "foo"
+
+    @get(":cat_id")
+    def get_cat(self, cat_id: str) -> Response:
+        """
+        Handles GET /api/foo/:id
+        """
+            </code>
           </pre>
         </div>
       </div>
@@ -117,7 +167,7 @@ class Home(Controller):
           </p>
         </div>
       </div>
-      
+
       <div class="text-center mt-4">
         <a class="btn btn-xl btn-outline-light" href="https://github.com/RobertoPrevato/BlackSheepMVC">
           <i class="fab fa-github mr-2"></i>

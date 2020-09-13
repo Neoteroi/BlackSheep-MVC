@@ -2,15 +2,22 @@ from blacksheep.server.controllers import Controller, get
 
 
 class Home(Controller):
-
     @get()
     def index(self):
-        # NB: since the view function is called without parameters, the name is obtained from the
-        # calling request handler ('index')
-        return self.view()  # <-- returns by default /views/home/index.html
+        # Since the @get() decorator is used without arguments, the URL path
+        # is by default "/"
 
-    @get(...)  # <-- Since ellipsis is used here, the route takes the name of the request handler: '/about'
-    def about(self):
-        return self.view()  # <-- returns by default /views/home/about.html
+        # Since the view function is called without parameters, the name is
+        # obtained from the calling request handler: 'index',
+        # -> /views/home/index.html
+        return self.view()
 
+    @get(None)
+    def example(self):
+        # Since the @get() decorator is used explicitly with None, the URL path
+        # is obtained from the method name: "/example"
 
+        # Since the view function is called without parameters, the name is
+        # obtained from the calling request handler: 'example',
+        # -> /views/home/example.html
+        return self.view()

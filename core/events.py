@@ -1,16 +1,15 @@
 """
 This module contains classes to configure initialization and disposing of services.
-For example, a connection pool to a PostgreSQL database can be initialized at application startup, and disposed
-when the application is stopped.
+For example, a connection pool to a PostgreSQL database can be initialized at
+application startup, and disposed when the application is stopped.
 
-This class is common between, and abstracted from, front-end logic and data access logic.
-See how it is used in app.program.py
+This class is common between, and abstracted from, front-end logic and data access
+logic. See how it is used in app.program.py
 app.on_start += context.initialize
 """
 
 
 class AsyncEventHandler:
-
     def __init__(self, context):
         self.__handlers = []
         self.context = context
@@ -38,7 +37,6 @@ class AsyncEventHandler:
 
 
 class ServicesRegistrationContext:
-
     def __init__(self):
         self.initialize = AsyncEventHandler(self)
         self.dispose = AsyncEventHandler(self)
