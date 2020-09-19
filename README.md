@@ -43,16 +43,73 @@ from blacksheep.server.controllers import Controller, get
 
 
 class Home(Controller):
-
     @get()
     def index(self):
-        # NB: since the view function is called without parameters, the name is obtained from the
-        # calling request handler ('index')
-        return self.view()  # <-- returns by default /views/home/index.html
+        # Since the @get() decorator is used without arguments, the URL path
+        # is by default "/"
 
-    @get(...)  # <-- Since ellipsis is used here, the route takes the name of the request handler: '/about'
-    def about(self):
-        return self.view()  # <-- returns by default /views/home/about.html
+        # Since the view function is called without parameters, the name is
+        # obtained from the calling request handler: 'index',
+        # -> /views/home/index.html
+        return self.view()
+
+    @get(None)
+    def example(self):
+        # Since the @get() decorator is used explicitly with None, the URL path
+        # is obtained from the method name: "/example"
+
+        # Since the view function is called without parameters, the name is
+        # obtained from the calling request handler: 'example',
+        # -> /views/home/example.html
+        return self.view()
+```
+
+It is also possible to define API endpoints:
+
+```python
+from blacksheep import Response
+from blacksheep.server.controllers import ApiController, delete, get, patch, post
+
+
+# In this case, the entity name is obtained from the class name: "cats"
+# To specify a @classmethod called "class_name" and returning a string, like in the
+# Foo example below.
+class Cats(ApiController):
+    @get(":cat_id")
+    def get_cat(self, cat_id: str) -> Response:
+        """
+        Handles GET /api/cats/:id
+        """
+
+    @patch(":cat_id")
+    def update_cat(self, cat_id: str) -> Response:
+        """
+        Handles PATCH /api/cats/:id
+        """
+
+    @post()
+    def create_cat(self) -> Response:
+        """
+        Handles POST /api/cats
+        """
+
+    @delete(":cat_id")
+    def delete_cat(self, cat_id: str) -> Response:
+        """
+        Handles DELETE /api/cats/:id
+        """
+
+
+class FooExample(ApiController):
+    @classmethod
+    def class_name(cls) -> str:
+        return "foo"
+
+    @get(":cat_id")
+    def get_cat(self, cat_id: str) -> Response:
+        """
+        Handles GET /api/foo/:id
+        """
 ```
 
 ---
@@ -67,8 +124,15 @@ For more information and documentation about built-in dependency injection, see 
 ---
 
 ## About ASGI servers
-This project template includes references to [`uvicorn`](uvicorn.org). However, it is possible to use other implementations of ASGI HTTP Servers.
+This project template includes references to [`uvicorn`](uvicorn.org).
 
+To run with hot reload during local development and using a custom port:
+
+```bash
+uvicorn server:app --port 44777 --reload --log-level info
+```
+
+However, it is possible to use other implementations of ASGI HTTP Servers.
 For example, to use the same application with [`Hypercorn`](https://pypi.org/project/Hypercorn/):
 
 ```bash
@@ -76,3 +140,7 @@ $ pip install Hypercorn
 
 $ hypercorn server:app
 ```
+
+## Developing locally using HTTPS
+To develop locally over HTTPS using a trusted certificate, see
+[_How to develop locally using HTTPS_](https://github.com/RobertoPrevato/BlackSheep/wiki/How-to-develop-locally-using-HTTPS).

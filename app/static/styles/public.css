@@ -9881,3 +9881,8 @@ ol li {
 code {
   padding: 0 3rem !important;
 }
+
+#example {
+  margin: 10rem auto;
+  width: 80%;
+}
