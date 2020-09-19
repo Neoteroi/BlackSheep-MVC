@@ -72,8 +72,6 @@ from blacksheep.server.controllers import ApiController, delete, get, patch, pos
 
 
 # In this case, the entity name is obtained from the class name: "cats"
-# To specify a @classmethod called "class_name" and returning a string, like in the
-# Foo example below.
 class Cats(ApiController):
     @get(":cat_id")
     def get_cat(self, cat_id: str) -> Response:
@@ -100,13 +98,15 @@ class Cats(ApiController):
         """
 
 
+# To specify an api name different than the class name, use a @classmethod called "class_name",
+# like in this example:
 class FooExample(ApiController):
     @classmethod
     def class_name(cls) -> str:
         return "foo"
 
-    @get(":cat_id")
-    def get_cat(self, cat_id: str) -> Response:
+    @get(":foo_id")
+    def get_cat(self, foo_id: str) -> Response:
         """
         Handles GET /api/foo/:id
         """
@@ -120,6 +120,10 @@ For more information and documentation about built-in dependency injection, see 
 * [rodi](https://github.com/RobertoPrevato/rodi)
 * [rodi wiki](https://github.com/RobertoPrevato/rodi/wiki)
 * [rodi wiki examples](https://github.com/RobertoPrevato/rodi/wiki/Examples)
+
+See also the `BlackSheep` Wiki:
+* [Dependency injection](https://github.com/RobertoPrevato/BlackSheep/wiki/Dependency-injection).
+* [Model binding](https://github.com/RobertoPrevato/BlackSheep/wiki/Model-binding).
 
 ---
 
