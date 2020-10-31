@@ -10,4 +10,4 @@ from openapidocs.v3 import Info
 docs = OpenAPIHandler(info=Info(title="Cats API", version="0.0.1"))
 
 # include only endpoints whose path starts with "/api/"
-# docs.include = lambda path, _: path.startswith("/api/")
+docs.include = lambda path, _: path.startswith("/api/")

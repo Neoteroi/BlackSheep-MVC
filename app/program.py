@@ -17,14 +17,6 @@ async def before_start(application: Application) -> None:
     application.services.add_alias("app", Application)
 
 
-async def after_start(application: Application) -> None:
-    print(application.router.routes)
-
-
-async def on_stop_1(application: Application) -> None:
-    print(application.router.routes)
-
-
 def configure_application(
     services: Container,
     context: ServicesRegistrationContext,
@@ -37,8 +29,6 @@ def configure_application(
     )
 
     app.on_start += before_start
-    app.after_start += after_start
-    app.on_stop += on_stop_1
 
     app.on_start += context.initialize
     app.on_stop += context.dispose
