@@ -1,4 +1,3 @@
-from blacksheep.server.openapi.v3 import serve_openapi_docs
 from roconfiguration import Configuration
 from rodi import Container
 
@@ -50,5 +49,5 @@ def configure_application(
 
     app.serve_files(ServeFilesOptions("app/static"))
 
-    serve_openapi_docs(app, docs)
+    docs.bind_app(app)
     return app

@@ -21,4 +21,4 @@ app = configure_application(*configure_services(load_configuration()))
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=44666, log_level="debug")
+    uvicorn.run(app, host="127.0.0.1", port=8000, log_level="debug")
