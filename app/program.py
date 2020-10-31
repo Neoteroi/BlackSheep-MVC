@@ -9,6 +9,12 @@ from . import controllers  # NoQA
 from .auth import configure_authentication
 from .errors import configure_error_handlers
 from .templating import configure_templating
+from .docs import docs
+
+
+async def before_start(application: Application) -> None:
+    application.services.add_instance(application)
+    application.services.add_alias("app", Application)
 
 
 def configure_application(
@@ -22,6 +28,8 @@ def configure_application(
         debug=configuration.debug,
     )
 
+    app.on_start += before_start
+
     app.on_start += context.initialize
     app.on_stop += context.dispose
 
@@ -30,4 +38,6 @@ def configure_application(
     configure_templating(app, configuration)
 
     app.serve_files(ServeFilesOptions("app/static"))
+
+    docs.bind_app(app)
     return app

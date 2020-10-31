@@ -1,4 +1,13 @@
+from uuid import UUID
+from app.controllers.docs.cats import create_cat_docs, get_cat_docs, get_cats_docs
+from domain.cats import (
+    CreateCatInput,
+    UpdateCatInput,
+)
+
+from app.docs import docs
 from blacksheep import Response
+from blacksheep.server.bindings import FromJson, FromQuery
 from blacksheep.server.controllers import ApiController, delete, get, patch, post
 
 
@@ -6,28 +15,50 @@ from blacksheep.server.controllers import ApiController, delete, get, patch, pos
 # To specify a @classmethod called "class_name" and returning a string, like in the
 # Foo example below.
 class Cats(ApiController):
-    @get(":cat_id")
-    def get_cat(self, cat_id: str) -> Response:
+    @docs(get_cats_docs)
+    @get()
+    def get_cats(
+        self,
+        page: FromQuery[int] = FromQuery(1),
+        page_size: FromQuery[int] = FromQuery(30),
+        search: FromQuery[str] = FromQuery(""),
+    ) -> Response:
         """
-        Handles GET /api/cats/:id
+        Returns a list of paginated cats.
         """
 
-    @patch(":cat_id")
-    def update_cat(self, cat_id: str) -> Response:
+    @docs(get_cat_docs)
+    @get(":cat_id")
+    def get_cat(self, cat_id: UUID) -> Response:
         """
-        Handles PATCH /api/cats/:id
+        Gets a cat by id.
+        """
+
+    @docs(summary="Updates a Cat")
+    @patch(":cat_id")
+    def update_cat(self, cat_id: str, input: UpdateCatInput) -> Response:
+        """
+        Updates a cat with given id.
         """
 
     @post()
-    def create_cat(self) -> Response:
+    @docs(create_cat_docs)
+    def create_cat(self, input: FromJson[CreateCatInput]) -> Response:
         """
-        Handles POST /api/cats
+        Creates a new cat.
         """
 
+    @docs(
+        responses={
+            204: "Cat deleted successfully",
+        },
+    )
     @delete(":cat_id")
     def delete_cat(self, cat_id: str) -> Response:
         """
-        Handles DELETE /api/cats/:id
+        Deletes a cat by id.
+
+        Lorem ipsum dolor sit amet.
         """
 
 
@@ -36,8 +67,9 @@ class FooExample(ApiController):
     def class_name(cls) -> str:
         return "foo"
 
-    @get(":cat_id")
-    def get_cat(self, cat_id: str) -> Response:
+    @docs.ignore()
+    @get(":foo_id")
+    def get_foo(self, foo_id: str) -> Response:
         """
         Handles GET /api/foo/:id
         """

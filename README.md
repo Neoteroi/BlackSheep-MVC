@@ -1,6 +1,6 @@
 # BlackSheep MVC project template
 Project template for [BlackSheep](https://github.com/RobertoPrevato/BlackSheep) web applications using MVC architecture. This project template
-can be used to build web applications that serve static files, support server side rendering of HTML, and define APIs.
+can be used to build web applications that serve static files, support server side rendering of HTML, and expose APIs.
 
 [![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#blacksheep-mvc-project-template)
 
@@ -29,6 +29,7 @@ $ uvicorn server:app --port 44777 --reload --log-level info
 * Handling of application start and stop events
 * Strategy to handle authentication and authorization, using [`guardpost`](https://github.com/RobertoPrevato/GuardPost)
 * Integration with [`Jinja2 template engine`](http://jinja.pocoo.org/docs/2.10/)
+* Automatic generation of [OpenAPI Documentation](https://swagger.io/specification/)
 
 ## Request handlers defined using Controllers
 In BlackSheep, request handlers can be defined as functions, or class methods.
@@ -64,7 +65,9 @@ class Home(Controller):
         return self.view()
 ```
 
-It is also possible to define API endpoints:
+It is also possible to define API endpoints, using the provided `ApiController`
+class (endpoints defined this way are automatically prepended with `/api/` and,
+if desired, a version of the API:
 
 ```python
 from blacksheep import Response
@@ -113,6 +116,21 @@ class FooExample(ApiController):
 ```
 
 ---
+
+## OpenAPI Documentation
+BlackSheep implements automatic generation of OpenAPI Documentation for most
+common scenarios, and provides methods to enrich the documentation with details.
+More complex scenarios can be expressed through manual configuration. This
+project template includes an example of OpenAPI Documentation, and exposes
+a Swagger UI to inspect the API at `/docs` path.
+
+After running the application using, navigate to its `/docs` path to see the
+documentation:
+
+![OpenAPI Docs](https://labeuwstacc.blob.core.windows.net/posts/openapi-docs.png)
+
+See the source code of the project template, to see how documentation is
+organized and configured (`app.docs`, `app.controllers.docs`).
 
 ## About dependency injection
 For more information and documentation about built-in dependency injection, see `rodi` Wiki and examples:
