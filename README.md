@@ -7,7 +7,7 @@ of HTML, and expose APIs.
 [![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#blacksheep-mvc-project-template)
 
 ## Getting started
-This project template is documented in the following tutorial:
+This project template is documented in the following tutorial: <br />
 [https://www.neoteroi.dev/blacksheep/mvc-project-template/](https://www.neoteroi.dev/blacksheep/mvc-project-template/).
 
 1. Clone the repository
