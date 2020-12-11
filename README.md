@@ -1,8 +1,15 @@
 # BlackSheep MVC project template
-Project template for [BlackSheep](https://github.com/RobertoPrevato/BlackSheep) web applications using MVC architecture. This project template
-can be used to build web applications that serve static files, support server side rendering of HTML, and expose APIs.
+Project template for [BlackSheep](https://github.com/RobertoPrevato/BlackSheep)
+web applications using MVC architecture. This project template can be used to
+build web applications that serve static files, support server side rendering
+of HTML, and expose APIs.
 
 [![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#blacksheep-mvc-project-template)
+
+## Documentation
+This project template is documented in the following tutorial:
+[_Getting started with the MVC project template_](https://www.neoteroi.dev/blacksheep/mvc-project-template/).
+The documentation of the [framework can be read here](https://www.neoteroi.dev/blacksheep/).
 
 ## Getting started
 1. Clone the repository
@@ -22,22 +29,34 @@ $ uvicorn server:app --port 44777 --reload --log-level info
 
 ## Features
 * Basic folder structure
-* Strategy to organize request handlers in controllers, and folder structure of views (HTML templates used by Jinja2)
-* Strategy to read configuration from YAML, JSON, INI files, and environmental variables; using [`roconfiguration`](https://github.com/RobertoPrevato/roconfiguration)
-* Handling of dependency injection, using [`rodi`](https://github.com/RobertoPrevato/rodi) :tulip:
+* Strategy to organize request handlers in controllers, and folder structure of
+  views (HTML templates used by Jinja2)
+* Strategy to read configuration from YAML, JSON, INI files, and environmental
+  variables; using
+  [`roconfiguration`](https://github.com/RobertoPrevato/roconfiguration)
+* Handling of dependency injection, using
+  [`rodi`](https://github.com/RobertoPrevato/rodi) :tulip:
 * Configuration of exceptions handlers
 * Handling of application start and stop events
-* Strategy to handle authentication and authorization, using [`guardpost`](https://github.com/RobertoPrevato/GuardPost)
-* Integration with [`Jinja2 template engine`](http://jinja.pocoo.org/docs/2.10/)
-* Automatic generation of [OpenAPI Documentation](https://swagger.io/specification/)
+* Strategy to handle authentication and authorization, using
+  [`guardpost`](https://github.com/RobertoPrevato/GuardPost)
+* Integration with [`Jinja2 template
+  engine`](http://jinja.pocoo.org/docs/2.10/)
+* Automatic generation of [OpenAPI
+  Documentation](https://swagger.io/specification/)
 
 ## Request handlers defined using Controllers
 In BlackSheep, request handlers can be defined as functions, or class methods.
-Using class methods has the benefit of reducing code repetition, when the same context is needed for several request handlers.
-In both cases, services configured at startup and described in handlers' signatures, are injected automatically by the framework (see app.services and how the `Container` class is used).
-Controllers *also* receive injected services to their constructors (`__init__` methods), hence potentially reducing code repetition.
+Using class methods has the benefit of reducing code repetition, when the same
+context is needed for several request handlers. In both cases, services
+configured at startup and described in handlers' signatures, are injected
+automatically by the framework (see app.services and how the `Container` class
+is used). Controllers *also* receive injected services to their constructors
+(`__init__` methods), hence potentially reducing code repetition.
 
-Controllers also offer extra extensibility points: `on_request`, `on_response`, base `route` for all handlers defined on the class, and automatic selection of `view` by method name.
+Controllers also offer extra extensibility points: `on_request`, `on_response`,
+base `route` for all handlers defined on the class, and automatic selection of
+`view` by method name.
 
 ```python
 from blacksheep.server.controllers import Controller, get
@@ -119,9 +138,9 @@ class FooExample(ApiController):
 
 ## OpenAPI Documentation
 BlackSheep implements automatic generation of OpenAPI Documentation for most
-common scenarios, and provides methods to enrich the documentation with details.
-More complex scenarios can be expressed through manual configuration. This
-project template includes an example of OpenAPI Documentation, and exposes
+common scenarios, and provides methods to enrich the documentation with
+details. More complex scenarios can be expressed through manual configuration.
+This project template includes an example of OpenAPI Documentation, and exposes
 a Swagger UI to inspect the API at `/docs` path.
 
 After running the application using, navigate to its `/docs` path to see the
@@ -133,15 +152,11 @@ See the source code of the project template, to see how documentation is
 organized and configured (`app.docs`, `app.controllers.docs`).
 
 ## About dependency injection
-For more information and documentation about built-in dependency injection, see `rodi` Wiki and examples:
+For more information and documentation about built-in dependency injection,
+read the documentation about:
 
-* [rodi](https://github.com/RobertoPrevato/rodi)
-* [rodi wiki](https://github.com/RobertoPrevato/rodi/wiki)
-* [rodi wiki examples](https://github.com/RobertoPrevato/rodi/wiki/Examples)
-
-See also the `BlackSheep` Wiki:
-* [Dependency injection](https://github.com/RobertoPrevato/BlackSheep/wiki/Dependency-injection).
-* [Model binding](https://github.com/RobertoPrevato/BlackSheep/wiki/Model-binding).
+* [request handlers](https://www.neoteroi.dev/blacksheep/request-handlers/).
+* [dependency injection](https://www.neoteroi.dev/blacksheep/dependency-injection/).
 
 ---
 
@@ -165,4 +180,4 @@ $ hypercorn server:app
 
 ## Developing locally using HTTPS
 To develop locally over HTTPS using a trusted certificate, see
-[_How to develop locally using HTTPS_](https://github.com/RobertoPrevato/BlackSheep/wiki/How-to-develop-locally-using-HTTPS).
+[_How to develop locally using HTTPS_](https://www.neoteroi.dev/blacksheep/develop-with-https/).
