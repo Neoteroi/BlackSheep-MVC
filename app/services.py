@@ -3,9 +3,8 @@ Use this module to register required services.
 Services registered inside a `rodi.Container` are automatically injected into request
 handlers.
 
-For more information and documentation, see `rodi` Wiki and examples:
-    https://github.com/RobertoPrevato/rodi/wiki
-    https://github.com/RobertoPrevato/rodi/wiki/Examples
+For more information and documentation, see:
+    https://www.neoteroi.dev/blacksheep/dependency-injection/
 """
 from typing import Tuple
 

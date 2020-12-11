@@ -6,10 +6,12 @@ of HTML, and expose APIs.
 
 [![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#blacksheep-mvc-project-template)
 
-## Getting started
-This project template is documented in the following tutorial: <br />
-[https://www.neoteroi.dev/blacksheep/mvc-project-template/](https://www.neoteroi.dev/blacksheep/mvc-project-template/).
+## Documentation
+This project template is documented in the following tutorial:
+[_Getting started with the MVC project template_](https://www.neoteroi.dev/blacksheep/mvc-project-template/).
+The documentation of the [framework can be read here](https://www.neoteroi.dev/blacksheep/).
 
+## Getting started
 1. Clone the repository
 
 ```bash
@@ -150,16 +152,11 @@ See the source code of the project template, to see how documentation is
 organized and configured (`app.docs`, `app.controllers.docs`).
 
 ## About dependency injection
-For more information and documentation about built-in dependency injection, see
-`rodi` Wiki and examples:
+For more information and documentation about built-in dependency injection,
+read the documentation about:
 
-* [rodi](https://github.com/RobertoPrevato/rodi)
-* [rodi wiki](https://github.com/RobertoPrevato/rodi/wiki)
-* [rodi wiki examples](https://github.com/RobertoPrevato/rodi/wiki/Examples)
-
-See also the `BlackSheep` Wiki:
-* [Dependency injection](https://github.com/RobertoPrevato/BlackSheep/wiki/Dependency-injection).
-* [Model binding](https://github.com/RobertoPrevato/BlackSheep/wiki/Model-binding).
+* [request handlers](https://www.neoteroi.dev/blacksheep/request-handlers/).
+* [dependency injection](https://www.neoteroi.dev/blacksheep/dependency-injection/).
 
 ---
 
@@ -183,4 +180,4 @@ $ hypercorn server:app
 
 ## Developing locally using HTTPS
 To develop locally over HTTPS using a trusted certificate, see
-[_How to develop locally using HTTPS_](https://github.com/RobertoPrevato/BlackSheep/wiki/How-to-develop-locally-using-HTTPS).
+[_How to develop locally using HTTPS_](https://www.neoteroi.dev/blacksheep/develop-with-https/).
