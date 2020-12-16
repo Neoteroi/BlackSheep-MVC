@@ -1,5 +1,5 @@
 black==20.8b1
-blacksheep==0.2.9
+blacksheep==0.3.0
 uvicorn==0.13.0
 uvloop==0.14.0; platform_system != "Windows"
 flake8==3.8.3
