@@ -28,14 +28,14 @@ class Cats(ApiController):
         """
 
     @docs(get_cat_docs)
-    @get(":cat_id")
+    @get("{cat_id}")
     def get_cat(self, cat_id: UUID) -> Response:
         """
         Gets a cat by id.
         """
 
     @docs(summary="Updates a Cat")
-    @patch(":cat_id")
+    @patch("{cat_id}")
     def update_cat(self, cat_id: str, input: UpdateCatInput) -> Response:
         """
         Updates a cat with given id.
@@ -53,7 +53,7 @@ class Cats(ApiController):
             204: "Cat deleted successfully",
         },
     )
-    @delete(":cat_id")
+    @delete("{cat_id}")
     def delete_cat(self, cat_id: str) -> Response:
         """
         Deletes a cat by id.
@@ -68,7 +68,7 @@ class FooExample(ApiController):
         return "foo"
 
     @docs.ignore()
-    @get(":foo_id")
+    @get("{foo_id}")
     def get_foo(self, foo_id: str) -> Response:
         """
         Handles GET /api/foo/:id
