@@ -2,7 +2,6 @@ from roconfiguration import Configuration
 from rodi import Container
 
 from blacksheep.server import Application
-from blacksheep.server.files import ServeFilesOptions
 from core.events import ServicesRegistrationContext
 
 from . import controllers  # NoQA
@@ -37,7 +36,7 @@ def configure_application(
     configure_authentication(app)
     configure_templating(app, configuration)
 
-    app.serve_files(ServeFilesOptions("app/static"))
+    app.serve_files("app/static")
 
     docs.bind_app(app)
     return app
