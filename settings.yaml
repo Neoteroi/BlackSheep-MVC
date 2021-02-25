@@ -5,14 +5,14 @@
 # Refer to https://github.com/RobertoPrevato/roconfiguration for more information.
 #
 app_name: BlackSheep Empty Project Template
-github_url: https://github.com/RobertoPrevato/BlackSheepEmptyProject
+github_url: https://github.com/Neoteroi/BlackSheepMVC
 
 storage_connection_string: EXAMPLE
 
-debug: true  # if true, Jinja2 templates auto reloading is enabled
+debug: true # if true, Jinja2 templates auto reloading is enabled
 
 show_error_details: true
 
 # site information
 site:
-    copyright: Hello World  # change with your own copyright notice
+    copyright: Hello World # change with your own copyright notice
