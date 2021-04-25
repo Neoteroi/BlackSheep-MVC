@@ -1,5 +1,5 @@
 # BlackSheep MVC project template
-Project template for [BlackSheep](https://github.com/RobertoPrevato/BlackSheep)
+Project template for [BlackSheep](https://github.com/Neoteroi/BlackSheep)
 web applications using MVC architecture. This project template can be used to
 build web applications that serve static files, support server side rendering
 of HTML, and expose APIs.
@@ -15,7 +15,7 @@ The documentation of the [framework can be read here](https://www.neoteroi.dev/b
 1. Clone the repository
 
 ```bash
-$ git clone https://github.com/RobertoPrevato/BlackSheepMVC.git yourproject
+$ git clone https://github.com/Neoteroi/BlackSheepMVC.git yourproject
 ```
 
 2. Navigate to its folder
@@ -35,11 +35,11 @@ $ uvicorn server:app --port 44777 --reload --log-level info
   variables; using
   [`roconfiguration`](https://github.com/RobertoPrevato/roconfiguration)
 * Handling of dependency injection, using
-  [`rodi`](https://github.com/RobertoPrevato/rodi) :tulip:
+  [`rodi`](https://github.com/Neoteroi/rodi) :tulip:
 * Configuration of exceptions handlers
 * Handling of application start and stop events
 * Strategy to handle authentication and authorization, using
-  [`guardpost`](https://github.com/RobertoPrevato/GuardPost)
+  [`guardpost`](https://github.com/Neoteroi/GuardPost)
 * Integration with [`Jinja2 template
   engine`](http://jinja.pocoo.org/docs/2.10/)
 * Automatic generation of [OpenAPI
