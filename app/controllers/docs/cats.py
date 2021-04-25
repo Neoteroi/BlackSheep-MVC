@@ -55,7 +55,7 @@ get_cats_docs = EndpointDocs(
     """,
     responses={
         200: ResponseInfo(
-            "A cat",
+            "A paginated set of cats",
             content=[
                 ContentInfo(
                     CatsList,

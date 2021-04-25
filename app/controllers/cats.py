@@ -1,6 +1,8 @@
 from uuid import UUID
 from app.controllers.docs.cats import create_cat_docs, get_cat_docs, get_cats_docs
 from domain.cats import (
+    Cat,
+    CatsList,
     CreateCatInput,
     UpdateCatInput,
 )
@@ -22,28 +24,28 @@ class Cats(ApiController):
         page: FromQuery[int] = FromQuery(1),
         page_size: FromQuery[int] = FromQuery(30),
         search: FromQuery[str] = FromQuery(""),
-    ) -> Response:
+    ) -> CatsList:
         """
         Returns a list of paginated cats.
         """
 
     @docs(get_cat_docs)
     @get("{cat_id}")
-    def get_cat(self, cat_id: UUID) -> Response:
+    def get_cat(self, cat_id: UUID) -> Cat:
         """
         Gets a cat by id.
         """
 
     @docs(summary="Updates a Cat")
     @patch("{cat_id}")
-    def update_cat(self, cat_id: str, input: UpdateCatInput) -> Response:
+    def update_cat(self, cat_id: str, input: UpdateCatInput) -> Cat:
         """
         Updates a cat with given id.
         """
 
     @post()
     @docs(create_cat_docs)
-    def create_cat(self, input: FromJson[CreateCatInput]) -> Response:
+    def create_cat(self, input: FromJson[CreateCatInput]) -> Cat:
         """
         Creates a new cat.
         """
