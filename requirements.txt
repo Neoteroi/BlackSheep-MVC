@@ -1,6 +1,6 @@
 black==20.8b1
 blacksheep
-uvicorn==0.13.4
+uvicorn==0.14.0
 uvloop==0.14.0; platform_system != "Windows"
 flake8==3.8.4
 mypy==0.782
