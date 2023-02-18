@@ -4,7 +4,7 @@ web applications using MVC architecture. This project template can be used to
 build web applications that serve static files, support server side rendering
 of HTML, and expose APIs.
 
-[![Picture](https://labeuwstacc.blob.core.windows.net/posts/blacksheep-mvc.png)](#blacksheep-mvc-project-template)
+[![Picture](https://www.neoteroi.dev/blacksheep/img/mvc-template-home.png)](#blacksheep-mvc-project-template)
 
 ## Documentation
 This project template is documented in the following tutorial:
@@ -146,7 +146,7 @@ a Swagger UI to inspect the API at `/docs` path.
 After running the application using, navigate to its `/docs` path to see the
 documentation:
 
-![OpenAPI Docs](https://labeuwstacc.blob.core.windows.net/posts/openapi-docs.png)
+![OpenAPI Docs](https://www.neoteroi.dev/blacksheep/img/openapi-docs.png)
 
 See the source code of the project template, to see how documentation is
 organized and configured (`app.docs`, `app.controllers.docs`).
