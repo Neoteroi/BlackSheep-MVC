@@ -84,17 +84,17 @@ class Home(Controller):
         return self.view()
 ```
 
-It is also possible to define API endpoints, using the provided `ApiController`
+It is also possible to define API endpoints, using the provided `APIController`
 class (endpoints defined this way are automatically prepended with `/api/` and,
 if desired, a version of the API:
 
 ```python
 from blacksheep import Response
-from blacksheep.server.controllers import ApiController, delete, get, patch, post
+from blacksheep.server.controllers import APIController, delete, get, patch, post
 
 
 # In this case, the entity name is obtained from the class name: "cats"
-class Cats(ApiController):
+class Cats(APIController):
     @get(":cat_id")
     def get_cat(self, cat_id: str) -> Response:
         """
@@ -122,7 +122,7 @@ class Cats(ApiController):
 
 # To specify an api name different than the class name, use a @classmethod called "class_name",
 # like in this example:
-class FooExample(ApiController):
+class FooExample(APIController):
     @classmethod
     def class_name(cls) -> str:
         return "foo"
@@ -177,7 +177,3 @@ $ pip install Hypercorn
 
 $ hypercorn server:app
 ```
-
-## Developing locally using HTTPS
-To develop locally over HTTPS using a trusted certificate, see
-[_How to develop locally using HTTPS_](https://www.neoteroi.dev/blacksheep/develop-with-https/).
