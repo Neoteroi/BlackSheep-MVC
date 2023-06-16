@@ -1,10 +1,9 @@
 from datetime import datetime
 
-from jinja2 import Environment, PackageLoader
-from roconfiguration import Configuration
-
 from blacksheep.server import Application
 from blacksheep.server.templating import use_templates
+from config.common import Configuration
+from jinja2 import Environment, PackageLoader
 
 
 def configure_templating(

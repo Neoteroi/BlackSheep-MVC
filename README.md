@@ -33,7 +33,7 @@ $ uvicorn server:app --port 44777 --reload --log-level info
   views (HTML templates used by Jinja2)
 * Strategy to read configuration from YAML, JSON, INI files, and environmental
   variables; using
-  [`roconfiguration`](https://github.com/RobertoPrevato/roconfiguration)
+  [`essentials-configuration`](https://github.com/Neoteroi/essentials-configuration)
 * Handling of dependency injection, using
   [`rodi`](https://github.com/Neoteroi/rodi) :tulip:
 * Configuration of exceptions handlers

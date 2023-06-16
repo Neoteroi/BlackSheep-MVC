@@ -8,18 +8,14 @@ For more information and documentation, see:
 """
 from typing import Tuple
 
-from roconfiguration import Configuration
+from config.common import Configuration
 from rodi import Container
-
-from core.events import ServicesRegistrationContext
 
 
 def configure_services(
     configuration: Configuration,
-) -> Tuple[Container, ServicesRegistrationContext, Configuration]:
+) -> Tuple[Container, Configuration]:
     container = Container()
-
-    context = ServicesRegistrationContext()
 
     container.add_instance(configuration)
 
@@ -28,4 +24,4 @@ def configure_services(
     # logic. Services registered here automatically injected into request handlers
     # when their function signature is type annotated with matching types.
 
-    return container, context, configuration
+    return container, configuration
