@@ -1,14 +1,12 @@
-from roconfiguration import Configuration
-from rodi import Container
-
 from blacksheep.server import Application
-from core.events import ServicesRegistrationContext
+from config.common import Configuration
+from rodi import Container
 
 from . import controllers  # NoQA
 from .auth import configure_authentication
+from .docs import docs
 from .errors import configure_error_handlers
 from .templating import configure_templating
-from .docs import docs
 
 
 async def before_start(application: Application) -> None:
@@ -18,7 +16,6 @@ async def before_start(application: Application) -> None:
 
 def configure_application(
     services: Container,
-    context: ServicesRegistrationContext,
     configuration: Configuration,
 ) -> Application:
     app = Application(
@@ -28,9 +25,6 @@ def configure_application(
     )
 
     app.on_start += before_start
-
-    app.on_start += context.initialize
-    app.on_stop += context.dispose
 
     configure_error_handlers(app)
     configure_authentication(app)

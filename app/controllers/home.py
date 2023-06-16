@@ -1,6 +1,6 @@
+from blacksheep.messages import Response
 from blacksheep.server.application import Application
 from blacksheep.server.controllers import Controller, get
-from blacksheep.messages import Response
 
 
 class Home(Controller):

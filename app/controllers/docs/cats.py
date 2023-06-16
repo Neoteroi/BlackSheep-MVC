@@ -1,23 +1,12 @@
 from datetime import datetime
-from domain.cats import (
-    Cat,
-    CatType,
-    CatsList,
-    CreateCatInput,
-    Foo,
-    HttpError,
-    CreateCatOutput,
-)
 from uuid import UUID, uuid4
-from blacksheep.server.openapi.common import (
-    ContentInfo,
-    EndpointDocs,
-    HeaderInfo,
-    RequestBodyInfo,
-    ResponseExample,
-    ResponseInfo,
-)
 
+from blacksheep.server.openapi.common import (ContentInfo, EndpointDocs,
+                                              HeaderInfo, RequestBodyInfo,
+                                              ResponseExample, ResponseInfo)
+
+from domain.cats import (Cat, CatsList, CatType, CreateCatInput,
+                         CreateCatOutput, Foo, HttpError)
 
 get_cat_docs = EndpointDocs(
     summary="Gets a cat by id",

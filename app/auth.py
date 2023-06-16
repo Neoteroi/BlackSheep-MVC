@@ -1,9 +1,8 @@
 from typing import Optional
 
+from blacksheep import Request
 from guardpost import Identity, User
 from guardpost.asynchronous.authentication import AuthenticationHandler
-
-from blacksheep import Request
 
 
 class AppAuthenticationHandler(AuthenticationHandler):
