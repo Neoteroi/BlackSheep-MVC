@@ -89,13 +89,13 @@ class Home(Controller):
           <pre>
             <code class="python">
 from blacksheep import Response
-from blacksheep.server.controllers import ApiController, delete, get, patch, post
+from blacksheep.server.controllers import APIController, delete, get, patch, post
 
 
 # In this case, the entity name is obtained from the class name: "cats"
 # To specify a @classmethod called "class_name" and returning a string, like in the
 # Foo example below.
-class Cats(ApiController):
+class Cats(APIController):
     @get(":cat_id")
     def get_cat(self, cat_id: str) -> Response:
         """
@@ -121,7 +121,7 @@ class Cats(ApiController):
         """
 
 
-class FooExample(ApiController):
+class FooExample(APIController):
     @classmethod
     def class_name(cls) -> str:
         return "foo"

@@ -3,9 +3,13 @@ from typing import Any
 from blacksheep import Request, Response
 from blacksheep.server import Application
 from blacksheep.server.responses import text
-from essentials.exceptions import (AcceptedException, ForbiddenException,
-                                   NotImplementedException, ObjectNotFound,
-                                   UnauthorizedException)
+from essentials.exceptions import (
+    AcceptedException,
+    ForbiddenException,
+    NotImplementedException,
+    ObjectNotFound,
+    UnauthorizedException,
+)
 
 
 def configure_error_handlers(app: Application) -> None:

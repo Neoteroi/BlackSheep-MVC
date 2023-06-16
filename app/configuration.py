@@ -4,8 +4,5 @@ from config.yaml import YAMLFile
 
 
 def load_configuration() -> Configuration:
-    builder = ConfigurationBuilder(
-        YAMLFile("settings.yaml"),
-        EnvVars()
-    )
+    builder = ConfigurationBuilder(YAMLFile("settings.yaml"), EnvVars())
     return builder.build()

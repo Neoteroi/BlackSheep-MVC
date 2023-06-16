@@ -2,11 +2,9 @@ from uuid import UUID
 
 from blacksheep import Response
 from blacksheep.server.bindings import FromJson, FromQuery
-from blacksheep.server.controllers import (ApiController, delete, get, patch,
-                                           post)
+from blacksheep.server.controllers import APIController, delete, get, patch, post
 
-from app.controllers.docs.cats import (create_cat_docs, get_cat_docs,
-                                       get_cats_docs)
+from app.controllers.docs.cats import create_cat_docs, get_cat_docs, get_cats_docs
 from app.docs import docs
 from domain.cats import Cat, CatsList, CreateCatInput, UpdateCatInput
 
@@ -14,7 +12,7 @@ from domain.cats import Cat, CatsList, CreateCatInput, UpdateCatInput
 # In this case, the entity name is obtained from the class name: "cats"
 # To specify a @classmethod called "class_name" and returning a string, like in the
 # Foo example below.
-class Cats(ApiController):
+class Cats(APIController):
     @docs(get_cats_docs)
     @get()
     def get_cats(
@@ -62,7 +60,7 @@ class Cats(ApiController):
         """
 
 
-class FooExample(ApiController):
+class FooExample(APIController):
     @classmethod
     def class_name(cls) -> str:
         return "foo"
