@@ -1,0 +1,7 @@
+blacksheep[full]==2.0a7
+uvicorn
+uvloop; platform_system != "Windows"
+essentials-configuration[full]
+jinja2
+markupsafe
+pydantic

@@ -1,0 +1,21 @@
+[
+    {
+        "type": "confirm",
+        "message": "Use OpenAPI Documentation?",
+        "name": "use_openapi",
+        "default": true,
+        "qmark": "📜"
+    },
+    {
+        "type": "select",
+        "name": "app_settings_format",
+        "message": "App settings format",
+        "choices": [
+            "YAML",
+            "TOML",
+            "JSON",
+            "INI"
+        ],
+        "qmark": "🔧"
+    }
+]
