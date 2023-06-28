@@ -1,18 +1,19 @@
 from datetime import datetime
 
 from blacksheep.server import Application
-from blacksheep.server.templating import use_templates
+from blacksheep.server.rendering.jinja2 import JinjaRenderer
+from blacksheep.settings.html import html_settings
 from config.common import Configuration
-from jinja2 import Environment, PackageLoader
 
 
 def configure_templating(
     application: Application, configuration: Configuration
 ) -> None:
     """
-    Configures server side templating engine for HTML views, using Jinja2.
+    Configures server side rendering for HTML views.
     """
-    use_templates(application, PackageLoader("app", "views"))
+    renderer = html_settings.renderer
+    assert isinstance(renderer, JinjaRenderer)
 
     def get_copy():
         now = datetime.now()
@@ -20,5 +21,5 @@ def configure_templating(
 
     helpers = {"_": lambda x: x, "copy": get_copy}
 
-    env: Environment = application.jinja_environment  # type: ignore
+    env = renderer.env
     env.globals.update(helpers)

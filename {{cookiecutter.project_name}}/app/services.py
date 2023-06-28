@@ -3,8 +3,9 @@ Use this module to register required services.
 Services registered inside a `rodi.Container` are automatically injected into request
 handlers.
 
-For more information and documentation, see:
-    https://www.neoteroi.dev/blacksheep/dependency-injection/
+For more information and documentation, see `rodi` Wiki and examples:
+    https://github.com/Neoteroi/rodi/wiki
+    https://github.com/Neoteroi/rodi/tree/main/examples
 """
 from typing import Tuple
 
@@ -18,10 +19,5 @@ def configure_services(
     container = Container()
 
     container.add_instance(configuration)
-
-    # Use the container object for example to register dependent services such as
-    # classes used to connect to a database or other services, or to handle business
-    # logic. Services registered here automatically injected into request handlers
-    # when their function signature is type annotated with matching types.
 
     return container, configuration

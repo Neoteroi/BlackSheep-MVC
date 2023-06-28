@@ -1,4 +1,0 @@
-blacksheep
-uvicorn
-uvloop; platform_system != "Windows"
-essentials-configuration
