@@ -8,6 +8,16 @@
     },
     {
         "type": "select",
+        "name": "app_settings_library",
+        "message": "App settings library",
+        "choices": [
+            "essentials-configuration",
+            "Pydantic"
+        ],
+        "qmark": "🔧"
+    },
+    {
+        "type": "select",
         "name": "app_settings_format",
         "message": "App settings format",
         "choices": [
@@ -16,6 +26,7 @@
             "JSON",
             "INI"
         ],
-        "qmark": "🔧"
+        "qmark": "🔩",
+        "when": "app_settings_library == essentials-configuration"
     }
 ]

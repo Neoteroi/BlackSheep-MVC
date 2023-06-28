@@ -3,11 +3,12 @@ from datetime import datetime
 from blacksheep.server import Application
 from blacksheep.server.rendering.jinja2 import JinjaRenderer
 from blacksheep.settings.html import html_settings
-from config.common import Configuration
+
+from app.settings import Settings
 
 
 def configure_templating(
-    application: Application, configuration: Configuration
+    application: Application, settings: Settings
 ) -> None:
     """
     Configures server side rendering for HTML views.
@@ -17,7 +18,7 @@ def configure_templating(
 
     def get_copy():
         now = datetime.now()
-        return "{} {}".format(now.year, configuration.site.copyright)
+        return "{} {}".format(now.year, settings.site.copyright)
 
     helpers = {"_": lambda x: x, "copy": get_copy}
 

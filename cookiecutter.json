@@ -1,6 +1,7 @@
 {
     "project_name": "blacksheep-app",
     "use_openapi": true,
+    "app_settings_library": ["essentials-configuration", "Pydantic"],
     "app_settings_format": ["JSON", "YAML", "TOML", "INI"],
     "_copy_without_render": [
         "app/static",

@@ -6,15 +6,15 @@ information, used to generate OpenAPI documentation.
 """
 from blacksheep import Application
 from blacksheep.server.openapi.v3 import OpenAPIHandler
-from config.common import Configuration
 from openapidocs.v3 import Info
 
 from app.docs.binders import set_binders_docs
+from app.settings import Settings
 
 
-def configure_docs(app: Application, config: Configuration):
+def configure_docs(app: Application, settings: Settings):
     docs = OpenAPIHandler(
-        info=Info(title=config.info.title, version=config.info.version),
+        info=Info(title=settings.info.title, version=settings.info.version),
         anonymous_access=True,
     )
 

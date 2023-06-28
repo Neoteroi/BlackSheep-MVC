@@ -9,15 +9,16 @@ For more information and documentation, see `rodi` Wiki and examples:
 """
 from typing import Tuple
 
-from config.common import Configuration
 from rodi import Container
+
+from app.settings import Settings
 
 
 def configure_services(
-    configuration: Configuration,
-) -> Tuple[Container, Configuration]:
+    settings: Settings,
+) -> Tuple[Container, Settings]:
     container = Container()
 
-    container.add_instance(configuration)
+    container.add_instance(settings)
 
-    return container, configuration
+    return container, settings

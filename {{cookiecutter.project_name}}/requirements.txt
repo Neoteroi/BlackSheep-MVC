@@ -1,7 +1,9 @@
 blacksheep[full]==2.0a7
 uvicorn
 uvloop; platform_system != "Windows"
+{%- if cookiecutter.app_settings_library == "essentials-configuration" %}
 essentials-configuration[full]
+{%- endif %}
 jinja2
 markupsafe
 pydantic
