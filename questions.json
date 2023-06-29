@@ -9,7 +9,7 @@
     {
         "type": "select",
         "name": "app_settings_library",
-        "message": "App settings library",
+        "message": "Library to read settings",
         "choices": [
             "essentials-configuration",
             "Pydantic"

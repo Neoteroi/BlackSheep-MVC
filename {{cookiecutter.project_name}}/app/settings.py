@@ -1,6 +1,9 @@
 {%- if cookiecutter.app_settings_library == "Pydantic" -%}
 """
-Application settings handled using Pydantic Settings management
+Application settings handled using Pydantic Settings management.
+
+Pydantic is used both to read app settings from various sources, and to validate their
+values.
 
 https://docs.pydantic.dev/latest/usage/settings/
 """
@@ -40,9 +43,15 @@ def load_settings() -> Settings:
 
 {%- else -%}
 """
-Application settings handled using essentials-configuration.
+Application settings handled using essentials-configuration and Pydantic.
+
+- essentials-configuration is used to read settings from various sources and build the
+  configuration root
+- Pydantic is used to validate application settings
 
 https://github.com/Neoteroi/essentials-configuration
+
+https://docs.pydantic.dev/latest/usage/settings/
 """
 from blacksheep.server.env import get_env, is_development
 from config.common import Configuration, ConfigurationBuilder
@@ -60,6 +69,26 @@ from config.yaml import YAMLFile
 {%- if cookiecutter.app_settings_format == "TOML" %}
 from config.toml import TOMLFile
 {%- endif %}
+from pydantic import BaseModel
+
+
+class APIInfo(BaseModel):
+    title: str
+    version: str
+
+
+class App(BaseModel):
+    show_error_details: bool
+
+
+class Site(BaseModel):
+    copyright: str
+
+
+class Settings(BaseModel):
+    app: App
+    info: APIInfo
+    site: Site
 
 
 def default_configuration_builder() -> ConfigurationBuilder:
@@ -97,9 +126,7 @@ def default_configuration() -> Configuration:
     return builder.build()
 
 
-Settings = Configuration
-
-
 def load_settings() -> Settings:
-    return default_configuration()
+    config_root = default_configuration()
+    return config_root.bind(Settings)
 {%- endif %}

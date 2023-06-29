@@ -13,11 +13,7 @@ blacksheep create --template mvc
 
 🚀 Project name example
 📜 Use OpenAPI Documentation? Yes
-🔧 App settings format (Use arrow keys)
- » YAML
-   TOML
-   JSON
-   INI
+🔧 Library to read settings Pydantic
 ```
 
 ## Documentation
@@ -26,6 +22,8 @@ The documentation of the [framework can be read here](https://www.neoteroi.dev/b
 ## Features
 
 - Basic folder structure
+- Settings handled using [Pydantic Settings Management](https://docs.pydantic.dev/latest/usage/settings/) or [essentials-configuration](https://github.com/Neoteroi/essentials-configuration)
+  to read combined with Pydantic for validation
 - Strategy to read configuration from YAML, TOML, JSON, INI files, and
   environmental variables, or settings stored in a user's folder using
   [`essentials-configuration`](https://github.com/Neoteroi/essentials-configuration)
@@ -39,8 +37,6 @@ For more information and documentation about `rodi`, see:
 
 - [dependency injection in BlackSheep](https://www.neoteroi.dev/blacksheep/dependency-injection/)
 - [rodi](https://github.com/RobertoPrevato/rodi)
-- [rodi wiki](https://github.com/RobertoPrevato/rodi/wiki)
-- [rodi wiki examples](https://github.com/RobertoPrevato/rodi/wiki/Examples)
 
 ## Using Cookiecutter
 The template can also be used with `Cookiecutter`.
