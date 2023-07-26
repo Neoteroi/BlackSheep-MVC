@@ -5,7 +5,7 @@ from blacksheep import Application
 from rodi import Container
 
 from app.auth import configure_authentication
-{%- if cookiecutter.use_openapi == "True" %}
+{%- if cookiecutter.use_openapi %}
 from app.docs import configure_docs
 {%- endif %}
 from app.errors import configure_error_handlers
@@ -25,7 +25,7 @@ def configure_application(
     app.serve_files("app/static")
     configure_error_handlers(app)
     configure_authentication(app, settings)
-{%- if cookiecutter.use_openapi == "True" %}
+{%- if cookiecutter.use_openapi %}
     configure_docs(app, settings)
 {%- endif %}
     configure_templating(app, settings)
