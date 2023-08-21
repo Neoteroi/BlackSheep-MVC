@@ -1,4 +1,4 @@
-blacksheep[full]==2.0a8
+blacksheep[full]==2.0a10
 uvicorn==0.22.0
 uvloop; platform_system != "Windows"
 {%- if cookiecutter.app_settings_library == "essentials-configuration" %}
