@@ -9,7 +9,7 @@ class Home(Controller):
 
         # Since the view function is called without parameters, the name is
         # obtained from the calling request handler: 'index',
-        # -> /views/home/index.html
+        # -> /views/home/index.jinja
         return self.view()
 
     @get(None)
@@ -19,5 +19,5 @@ class Home(Controller):
 
         # Since the view function is called without parameters, the name is
         # obtained from the calling request handler: 'example',
-        # -> /views/home/example.html
+        # -> /views/home/example.jinja
         return self.view()
