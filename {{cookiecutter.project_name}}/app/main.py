@@ -5,11 +5,11 @@ from blacksheep import Application
 from rodi import Container
 
 from app.auth import configure_authentication
+from app.diagnostics import get_diagnostic_app
 {%- if cookiecutter.use_openapi %}
 from app.docs import configure_docs
 {%- endif %}
 from app.errors import configure_error_handlers
-from app.diagnostics import get_diagnostic_app
 from app.services import configure_services
 from app.settings import Settings
 from app.templating import configure_templating
