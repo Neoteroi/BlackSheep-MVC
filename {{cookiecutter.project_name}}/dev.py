@@ -4,6 +4,7 @@ application for production.
 
 Refer to https://www.uvicorn.org/deployment/ for production deployments.
 """
+
 import os
 
 import uvicorn
@@ -18,6 +19,7 @@ else:
 
 if __name__ == "__main__":
     os.environ["APP_ENV"] = "dev"
+    os.environ["APP_SHOW_ERROR_DETAILS"] = "1"
     port = int(os.environ.get("APP_PORT", 44777))
 
     console = Console()
