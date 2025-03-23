@@ -2,10 +2,11 @@
 This module configures the BlackSheep application before it starts.
 """
 from blacksheep import Application
+from blacksheep.server.diagnostics import get_diagnostic_app
+from blacksheep.server.redirects import get_trailing_slash_middleware
 from rodi import Container
 
 from app.auth import configure_authentication
-from app.diagnostics import get_diagnostic_app
 {%- if cookiecutter.use_openapi %}
 from app.docs import configure_docs
 {%- endif %}
@@ -20,9 +21,9 @@ def configure_application(
     settings: Settings,
 ) -> Application:
 
-    app = Application(
-        services=services, show_error_details=settings.app.show_error_details
-    )
+    app = Application(services=services)
+
+    app.middlewares.append(get_trailing_slash_middleware())
 
     app.serve_files("app/static")
     configure_error_handlers(app)

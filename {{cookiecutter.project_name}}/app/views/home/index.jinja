@@ -6,11 +6,11 @@ BlackSheep MVC Project Template
 Project template to create web applications with MVC architecture using BlackSheep web framework.
 {%- endblock -%}
 {%- block css -%}
-<link rel="stylesheet" href="/styles/public.css" />
+<link rel="stylesheet" href="styles/public.css" />
 {%- endblock -%}
 {%- block body -%}
 
-<header class="masthead bg-primary text-white text-center">
+<header class="masthead bg-primary text-white text-center" style="--bg-color: {{bgcolor()}};">
     <div class="container d-flex align-items-center flex-column">
 
         <!-- Masthead Avatar Image -->
@@ -148,7 +148,7 @@ class FooExample(APIController):
 </section>
 
 <!-- About Section -->
-<section class="page-section bg-primary text-white mb-0" id="about">
+<section class="page-section bg-primary text-white mb-0" id="about" style="--bg-color: {{bgcolor()}};">
     <div class="container">
 
         <!-- About Section Heading -->
@@ -261,5 +261,5 @@ class FooExample(APIController):
 
 {%- endblock -%}
 {%- block js -%}
-<script src="/scripts/freelancer.js"></script>
+<script src="scripts/freelancer.js"></script>
 {%- endblock -%}
