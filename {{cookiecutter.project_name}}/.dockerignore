@@ -1,0 +1,10 @@
+server/.vscode
+server/venv/
+server/.env/
+server/env/
+docs/
+.github/
+infrastructure/
+**/*.pyc
+**/*.md
+**/__pycache__

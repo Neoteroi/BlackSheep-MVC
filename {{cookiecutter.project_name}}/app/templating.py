@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 from blacksheep.server import Application
@@ -7,9 +8,7 @@ from blacksheep.settings.html import html_settings
 from app.settings import Settings
 
 
-def configure_templating(
-    application: Application, settings: Settings
-) -> None:
+def configure_templating(application: Application, settings: Settings) -> None:
     """
     Configures server side rendering for HTML views.
     """
@@ -20,7 +19,10 @@ def configure_templating(
         now = datetime.now()
         return "{} {}".format(now.year, settings.site.copyright)
 
-    helpers = {"_": lambda x: x, "copy": get_copy}
+    def get_bg_color():
+        return os.environ.get("BG_COLOR", "#1abc9c")
+
+    helpers = {"_": lambda x: x, "copy": get_copy, "bgcolor": get_bg_color}
 
     env = renderer.env
     env.globals.update(helpers)

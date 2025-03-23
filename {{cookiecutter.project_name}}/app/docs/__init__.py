@@ -4,6 +4,7 @@ This module contains OpenAPI Documentation definition for the API.
 It exposes a docs object that can be used to decorate request handlers with additional
 information, used to generate OpenAPI documentation.
 """
+
 from blacksheep import Application
 from blacksheep.server.openapi.v3 import OpenAPIHandler
 from openapidocs.v3 import Info
@@ -19,7 +20,7 @@ def configure_docs(app: Application, settings: Settings):
     )
 
     # include only endpoints whose path starts with "/api/"
-    docs.include = lambda path, _: path.startswith("/api/")
+    docs.include = lambda path, _: "/api/" in path
 
     set_binders_docs(docs)
 

@@ -39,6 +39,7 @@ For more information and documentation about `rodi`, see:
 - [rodi](https://github.com/RobertoPrevato/rodi)
 
 ## Using Cookiecutter
+
 The template can also be used with `Cookiecutter`.
 
 ```bash
