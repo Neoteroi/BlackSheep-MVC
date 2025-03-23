@@ -69,7 +69,7 @@ To test running with customizations to test the application at a different
 path:
 
 ```bash
-docker run --rm -p 8080:80 -e BG_COLOR='#fd7e14' -e APP_ROUTE_PREFIX='orange' mvcdemo
+docker run --name mvcdemo --rm -p 8080:80 -e BG_COLOR='#fd7e14' -e APP_ROUTE_PREFIX='orange' mvcdemo
 ```
 
 Then navigate to [http://localhost:8080/orange/](http://localhost:8080/orange/).
