@@ -73,3 +73,12 @@ docker run --name mvcdemo --rm -p 8080:80 -e BG_COLOR='#fd7e14' -e APP_ROUTE_PRE
 ```
 
 Then navigate to [http://localhost:8080/orange/](http://localhost:8080/orange/).
+
+To test using the image from Docker Hub:
+
+```bash
+docker run --name mvcdemo --rm -p 8080:80 \
+    -e BG_COLOR='#fd7e14' \
+    -e APP_ROUTE_PREFIX='orange' \
+    robertoprevato/mvcdemo
+```

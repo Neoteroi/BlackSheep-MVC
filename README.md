@@ -47,3 +47,17 @@ pip install cookiecutter
 
 cookiecutter https://github.com/Neoteroi/BlackSheep-MVC
 ```
+
+## Docker image
+
+The project template includes a `Dockerfile` that can be used to create an
+image.
+
+To test using the image from Docker Hub:
+
+```bash
+docker run --name mvcdemo --rm -p 8080:80 \
+    -e BG_COLOR='#fd7e14' \
+    -e APP_ROUTE_PREFIX='orange' \
+    robertoprevato/mvcdemo
+```

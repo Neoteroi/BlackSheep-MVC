@@ -33,7 +33,7 @@ FROM python:3.13.1-slim
 WORKDIR /home
 COPY --from=server_builder /home/ /home/
 
-ENV APP_ENV=dev BG_COLOR="#1abc9c" APP_ROUTE_PREFIX=""
+ENV APP_ENV=prod BG_COLOR="#1abc9c" APP_ROUTE_PREFIX=""
 RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 RUN apt-get update && apt-get install \
     ca-certificates \
