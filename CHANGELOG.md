@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2025-03-27
+
+- Add an helper function, `absurl`, for Jinja2 to generate absolute URLs to the
+  application itself, handling the application `Router.prefix`.
+- Use absolute URLs in links in jinja templates to render proper links in
+  sub-pages, like `/home/example/`.
+
 ## 2025-03-23
 
 - Upgrade to `BlackSheep` `2.1.0`.
