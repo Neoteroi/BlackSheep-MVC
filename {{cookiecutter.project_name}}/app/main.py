@@ -20,7 +20,6 @@ def configure_application(
     services: Container,
     settings: Settings,
 ) -> Application:
-
     app = Application(services=services)
 
     app.middlewares.append(get_trailing_slash_middleware())

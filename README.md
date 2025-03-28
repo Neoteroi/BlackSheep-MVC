@@ -50,8 +50,7 @@ cookiecutter https://github.com/Neoteroi/BlackSheep-MVC
 
 ## Docker image
 
-The project template includes a `Dockerfile` that can be used to create an
-image.
+The project template includes a `Dockerfile`.
 
 To test using the image from Docker Hub:
 
