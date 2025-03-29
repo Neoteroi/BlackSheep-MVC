@@ -1,10 +1,8 @@
-server/.vscode
-server/venv/
-server/.env/
-server/env/
-docs/
+.vscode
+venv/
+.env
+env/
 .github/
-infrastructure/
 **/*.pyc
 **/*.md
 **/__pycache__
